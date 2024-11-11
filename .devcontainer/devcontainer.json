@@ -17,7 +17,8 @@
 	"portsAttributes": {
 		"3000": {
 			"label": "Webserver",
-			"onAutoForward": "notify"
+			//"onAutoForward": "notify"
+			"onAutoForward": "ignore"
 		}
 	},
 
