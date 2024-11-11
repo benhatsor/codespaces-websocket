@@ -14,16 +14,16 @@
 		"github-cli": "latest"
 	 },
 
+	"forwardPorts": [3000],
+
 	"portsAttributes": {
 		"3000": {
-			"label": "Webserver",
+			"label": "Webserver"
 			//"onAutoForward": "notify"
-			"onAutoForward": "ignore"
 		}
 	},
 
-	"postCreateCommand": "pip3 install -r requirements.txt",
-	"postStartCommand": "python server.py $CODESPACE_NAME",
+	"postCreateCommand": "pip3 install -r requirements.txt && python server.py $CODESPACE_NAME",
 	
 	"remoteUser": "vscode"
 }
