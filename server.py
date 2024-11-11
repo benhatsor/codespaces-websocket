@@ -1,5 +1,5 @@
 import aiohttp
-from multiprocessing import Process
+import subprocess
 
 from aiohttp import web
 
@@ -98,12 +98,10 @@ app.add_routes(routes)
 
 
 
-def f(name):
+def f():
     web.run_app(app, port=3000)
+    
+    subprocess.run(["gh", "codespace", "ports", "visibility", "3000:public", "-c", "$CODESPACE_NAME"]) 
 
 if __name__ == '__main__':
-    p = Process(target=f, args=('bob',))
-    p.start()
-
-
-
+    f()
