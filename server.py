@@ -114,6 +114,10 @@ async def runApp():
 runApp()
 
 
+while True:
+    await asyncio.sleep(3600)  # sleep forever
+
+
 # async def on_startup(app):
 #     pass
 
