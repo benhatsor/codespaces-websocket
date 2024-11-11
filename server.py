@@ -111,11 +111,9 @@ async def runApp():
     codespaceName = sys.argv[1]
     subprocess.run(["gh", "codespace", "ports", "visibility", "3000:public", "-c", codespaceName])
 
+    input()
+
 runApp()
-
-
-while True:
-    await asyncio.sleep(3600)  # sleep forever
 
 
 # async def on_startup(app):
