@@ -118,8 +118,6 @@ async def runApp():
     print("Test")
 
     codespaceName = sys.argv[1]
-
-    await runCmd("gh codespace ports forward 3000:3000 -c " + codespaceName)
     
     await runCmd("gh codespace ports visibility 3000:public -c " + codespaceName)
     
