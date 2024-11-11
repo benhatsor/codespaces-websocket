@@ -105,7 +105,7 @@ app.add_routes(routes)
 
 
 async def runCmd(cmd):
-    process = await asyncio.create_subprocess_shell(cmd, stdin = PIPE, stdout PIPE, stderr = STDOUT)
+    process = await asyncio.create_subprocess_shell(cmd, stdin = PIPE, stdout = PIPE, stderr = STDOUT)
     await process.wait()
 
 async def runApp():
