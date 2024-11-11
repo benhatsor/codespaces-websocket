@@ -106,10 +106,12 @@ async def runApp():
     site = web.TCPSite(runner, port=3000)
     await site.start()
 
-    codespaceName = sys.argv[1]
-    subprocess.run(["gh", "codespace", "ports", "visibility", "3000:public", "-c", codespaceName]) 
+    print("http://0.0.0.0:3000/")
 
-await runApp()
+    codespaceName = sys.argv[1]
+    subprocess.run(["gh", "codespace", "ports", "visibility", "3000:public", "-c", codespaceName])
+
+runApp()
 
 
 # async def on_startup(app):
