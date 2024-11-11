@@ -115,6 +115,8 @@ async def runApp():
     site = web.TCPSite(runner, port=3000)
     await site.start()
 
+    print("Test")
+
     codespaceName = sys.argv[1]
 
     await runCmd("gh codespace ports forward 3000:3000 -c " + codespaceName)
