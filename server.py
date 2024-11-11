@@ -101,6 +101,11 @@ async def websocket_handler(request):
 app = web.Application()
 app.add_routes(routes)
 
+
+async def runCmd(cmd):
+    process = await asyncio.create_subprocess_shell(cmd, stdin = PIPE, stdout PIPE, stderr = STDOUT)
+    await process.wait()
+
 async def runApp():
 
     runner = web.AppRunner(app)
@@ -109,7 +114,11 @@ async def runApp():
     await site.start()
 
     codespaceName = sys.argv[1]
-    subprocess.run(["gh", "codespace", "ports", "forward", "3000:3000", "-c", codespaceName, "&&", "gh", "codespace", "ports", "visibility", "3000:public", "-c", codespaceName])
+
+    await runCmd("gh codespace ports forward 3000:3000 -c " + codespaceName)
+    
+    await runCmd("gh codespace ports visibility 3000:public -c " + codespaceName)
+    
 
 asyncio.run(runApp())
 
