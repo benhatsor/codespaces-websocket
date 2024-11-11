@@ -1,5 +1,4 @@
 import aiohttp
-import subprocess
 
 from aiohttp import web
 
@@ -97,11 +96,14 @@ app = web.Application()
 app.add_routes(routes)
 
 
-
-def f():
-    web.run_app(app, port=3000)
-    
+async def on_startup(app):
     subprocess.run(["gh", "codespace", "ports", "visibility", "3000:public", "-c", "$CODESPACE_NAME"]) 
+    pass
 
-if __name__ == '__main__':
-    f()
+app.on_startup.append(on_startup)
+
+
+
+web.run_app(app, port=3000)
+
+
