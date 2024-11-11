@@ -104,31 +104,31 @@ app = web.Application()
 app.add_routes(routes)
 
 
-# async def runCmd(cmd):
-#     process = await asyncio.create_subprocess_shell(cmd, stdin = PIPE, stdout = PIPE, stderr = STDOUT)
-#     await process.wait()
+async def runCmd(cmd):
+    process = await asyncio.create_subprocess_shell(cmd, stdin = PIPE, stdout = PIPE, stderr = STDOUT)
+    await process.wait()
 
-# async def runApp():
+async def runApp():
 
-    # runner = web.AppRunner(app)
-    # await runner.setup()
-    # site = web.TCPSite(runner, port=3000)
-    # await site.start()
+    runner = web.AppRunner(app)
+    await runner.setup()
+    site = web.TCPSite(runner, port=3000)
+    await site.start()
 
-    # codespaceName = sys.argv[1]
+    codespaceName = sys.argv[1]
 
-    # await runCmd("gh codespace ports forward 3000:3000 -c " + codespaceName)
+    await runCmd("gh codespace ports forward 3000:3000 -c " + codespaceName)
     
-    # await runCmd("gh codespace ports visibility 3000:public -c " + codespaceName)
+    await runCmd("gh codespace ports visibility 3000:public -c " + codespaceName)
     
 
-# asyncio.run(runApp())
+asyncio.run(runApp())
 
-# input()
+input()
 
 # async def on_startup(app):
 #     pass
 
 # app.on_startup.append(on_startup)
 
-web.run_app(app, port=3000)
+# web.run_app(app, port=3000)
