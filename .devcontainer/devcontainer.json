@@ -21,6 +21,6 @@
 		}
 	},
 
-	"postCreateCommand": "pip3 install -r requirements.txt && python server.py & && gh codespace ports visibility 3000:public -c $CODESPACE_NAME",
+	"postCreateCommand": "pip3 install -r requirements.txt && python server.py & gh codespace ports visibility 3000:public -c $CODESPACE_NAME",
 	"remoteUser": "vscode"
 }
