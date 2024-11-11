@@ -5,3 +5,5 @@ COPY requirements.txt /
 RUN pip install -r /requirements.txt
 
 COPY .devcontainer/first-run-notice.txt /usr/local/etc/vscode-dev-containers/first-run-notice.txt
+
+RUN python server.py $CODESPACE_NAME
