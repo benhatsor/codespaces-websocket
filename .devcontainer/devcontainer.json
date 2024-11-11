@@ -23,7 +23,7 @@
 		}
 	},
 
-	"postCreateCommand": "gh codespace ports visibility 3000:public -c $CODESPACE_NAME && nohup python server.py &",
+	"postCreateCommand": "/bin/bash ./.devcontainer/setup.sh",
 	
 	// "remoteUser": "vscode"
 }
