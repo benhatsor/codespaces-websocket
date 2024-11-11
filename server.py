@@ -99,17 +99,22 @@ async def websocket_handler(request):
 app = web.Application()
 app.add_routes(routes)
 
+async def runApp():
 
-async def on_startup(app):
+    runner = web.AppRunner(app)
+    await runner.setup()
+    site = web.TCPSite(runner, port=3000)
+    await site.start()
+
     codespaceName = sys.argv[1]
-    # subprocess.run(["gh", "codespace", "ports", "forward", "3000:3000", "-c", codespaceName]) 
     subprocess.run(["gh", "codespace", "ports", "visibility", "3000:public", "-c", codespaceName]) 
-    pass
 
-app.on_startup.append(on_startup)
-
+runApp()
 
 
-web.run_app(app, port=3000)
+# async def on_startup(app):
+#     pass
 
+# app.on_startup.append(on_startup)
 
+# web.run_app(app, port=3000)
