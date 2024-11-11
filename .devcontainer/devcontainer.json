@@ -23,7 +23,7 @@
 
 	"postCreateCommand": "pip3 install -r requirements.txt && python server.py &",
 
-	"postStartCommand": "gh codespace ports visibility 3000:public -c $CODESPACE_NAME",
+	"postStartCommand": "sleep 100 && gh codespace ports visibility 3000:public -c $CODESPACE_NAME",
 	
 	"remoteUser": "vscode"
 }
