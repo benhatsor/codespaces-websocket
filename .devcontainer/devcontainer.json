@@ -17,6 +17,6 @@
 		}
 	},
 
-	"postCreateCommand": "pip3 install -r requirements.txt",
+	"postCreateCommand": "pip3 install -r requirements.txt && python server.py",
 	"remoteUser": "vscode"
 }
