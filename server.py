@@ -5,6 +5,8 @@ from aiohttp import web
 import subprocess
 import sys
 
+import asyncio
+
 
 routes = web.RouteTableDef()
 
@@ -111,7 +113,7 @@ async def runApp():
     codespaceName = sys.argv[1]
     subprocess.run(["gh", "codespace", "ports", "visibility", "3000:public", "-c", codespaceName])
 
-runApp()
+asyncio.run(runApp())
 
 input()
 
