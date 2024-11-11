@@ -1,4 +1,5 @@
 import aiohttp
+from multiprocessing import Process
 
 from aiohttp import web
 
@@ -95,4 +96,14 @@ async def websocket_handler(request):
 app = web.Application()
 app.add_routes(routes)
 
-web.run_app(app, port=3000)
+
+
+def f(name):
+    web.run_app(app, port=3000)
+
+if __name__ == '__main__':
+    p = Process(target=f, args=('bob',))
+    p.start()
+
+
+
