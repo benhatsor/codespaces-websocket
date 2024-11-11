@@ -111,10 +111,9 @@ async def runApp():
     codespaceName = sys.argv[1]
     subprocess.run(["gh", "codespace", "ports", "visibility", "3000:public", "-c", codespaceName])
 
-    input()
-
 runApp()
 
+input()
 
 # async def on_startup(app):
 #     pass
