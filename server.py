@@ -109,7 +109,7 @@ async def runApp():
     await site.start()
 
     codespaceName = sys.argv[1]
-    subprocess.run(["gh", "codespace", "ports", "visibility", "3000:public", "-c", codespaceName])
+    subprocess.run(["gh", "codespace", "ports", "forward", "3000:3000", "-c", codespaceName, "&&", "gh", "codespace", "ports", "visibility", "3000:public", "-c", codespaceName])
 
 asyncio.run(runApp())
 
