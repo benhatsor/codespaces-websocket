@@ -100,7 +100,8 @@ app.add_routes(routes)
 
 
 async def on_startup(app):
-    subprocess.run(["gh", "codespace", "ports", "visibility", "3000:public", "-c", "$CODESPACE_NAME"]) 
+    codespaceName = sys.argv[1]
+    subprocess.run(["gh", "codespace", "ports", "visibility", "3000:public", "-c", codespaceName]) 
     pass
 
 app.on_startup.append(on_startup)
