@@ -1,5 +1,4 @@
 import aiohttp
-import subprocess
 
 from aiohttp import web
 
