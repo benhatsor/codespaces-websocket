@@ -1,6 +1,5 @@
 import aiohttp
 import subprocess
-import threading
 
 from aiohttp import web
 
@@ -94,13 +93,7 @@ async def websocket_handler(request):
     return ws
 
 
-def run_server():
-    web.run_app(app, port=3000)
-
-
 app = web.Application()
 app.add_routes(routes)
 
-threading.Thread(target=run_server).start()
-
-subprocess.Popen("gh codespace ports visibility 3000:public -c $CODESPACE_NAME")
+web.run_app(app, port=3000)
